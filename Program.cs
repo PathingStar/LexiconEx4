@@ -218,12 +218,13 @@
         static void CheckParanthesis()
         {
             char[] input = Console.ReadLine().ToCharArray();
-            int i=-1;
+            int i = -1;
             bool corekt = true;
             check(null);
-            
+
             Console.WriteLine(corekt);
-            void check(char? end) {
+            void check(char? end)
+            {
                 //if (!corekt) break; // om du vill att koden ska sluta sofårt som den har hittat ett fel
                 for (i++; i < input.Length; i++)
                 {
@@ -231,12 +232,14 @@
                     else if (input[i] == '{') check('}');
                     else if (input[i] == '[') check(']');
                     else if (input[i] == end) return;
-                    else if (input[i] == '}' || input[i] == ']' || input[i] == ')') {
-                        corekt = false; 
-                        Console.WriteLine($"charecter {i+1} could be {end}");
-                        return; }
+                    else if (input[i] == '}' || input[i] == ']' || input[i] == ')')
+                    {
+                        corekt = false;
+                        Console.WriteLine($"charecter {i + 1} could be {end}");
+                        return;
+                    }
 
-                    
+
                 }
                 if (end != null)
                 {
@@ -244,17 +247,17 @@
                     corekt = false;
                 }
             }
-            
+
 
 
         }
         static void Fibo()
         {
-            uint input=0;
+            uint input = 0;
             Console.WriteLine("Write a positiv number");
             try
             {
-                 input = uint.Parse(Console.ReadLine());
+                input = uint.Parse(Console.ReadLine());
             }
             catch (FormatException)
             {
@@ -262,11 +265,12 @@
 
             }
             Console.WriteLine(fibo(input));
-            uint fibo(uint input) {
-            if(input <= 1) return 0;
-            if(input <= 2) return 1;
-            return fibo(input-1)+fibo(input-2);
-            
+            uint fibo(uint input)
+            {
+                if (input <= 1) return 0;
+                if (input <= 2) return 1;
+                return fibo(input - 1) + fibo(input - 2);
+
             }
         }
         static void Iterative()
@@ -276,13 +280,15 @@
             {
                 Console.WriteLine(IterativeEven(int.Parse(Console.ReadLine())));
             }
-            catch (FormatException) {
+            catch (FormatException)
+            {
                 Console.WriteLine("Wrong input");
             }
             int IterativeEven(int n)
             {
                 int output = 0;
-                for (int i = 0; i < n; i++) {
+                for (int i = 0; i < n; i++)
+                {
                     output += 2;
                 }
                 return output;
@@ -292,5 +298,6 @@
                 //medans iterativt anrop jober med samma  ram i stacken.
             }
         }
+    }
 }
 
